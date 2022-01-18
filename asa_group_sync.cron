@@ -1,0 +1,7 @@
+# Synchronize ASA created users with local system groups
+
+ASA_AUTHORIZED_GROUP="@@ASA_AUTHORIZED_GROUP@@"
+LOCAL_GROUPS="@@LOCAL_GROUPS@@"
+PATH="@@PATH@@"
+
+*/30 * * * * root @@INSTALL_PREFIX@@/bin/asa_group_sync
