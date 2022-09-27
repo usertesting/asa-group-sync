@@ -7,9 +7,11 @@ ASA_AUTHORIZED_GROUP=${ASA_AUTHORIZED_GROUP:-}
 LOCAL_GROUPS=${LOCAL_GROUPS:-}
 
 function get_authorized_users() {
-  getent group ${ASA_AUTHORIZED_GROUP} \
-  | cut -d : -f4- \
-  | sed "s/,/ /g"
+  for group in ${ASA_AUTHORIZED_GROUP}; do
+    getent group ${group} \
+    | cut -d : -f4- \
+    | sed "s/,/ /g"
+  done
 }
 
 function update_local_user() {
